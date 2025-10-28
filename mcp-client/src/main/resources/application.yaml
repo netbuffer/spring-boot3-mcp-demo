@@ -11,3 +11,8 @@ spring:
     deepseek:
       api-key: ${DEEPSEEK_API_KEY}
       base-url: https://api.deepseek.com
+
+logging:
+  level:
+    root: INFO
+    cn.netbuffer: DEBUG
