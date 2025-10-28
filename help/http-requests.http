@@ -1,0 +1,11 @@
+### 测试ChatController的q接口
+GET http://localhost:8081/api/chat/q?question=你好
+Accept: application/json
+
+### 测试不同问题
+GET http://localhost:8081/api/chat/q?question=今天天气怎么样
+Accept: application/json
+
+### 测试空问题
+GET http://localhost:8081/api/chat/q?question=
+Accept: application/json
