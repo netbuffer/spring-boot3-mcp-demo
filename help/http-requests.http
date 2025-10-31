@@ -6,6 +6,10 @@ Accept: application/json
 GET http://localhost:8081/api/chat/q?question=今天天气怎么样
 Accept: application/json
 
+### 测试streamq接口
+GET http://localhost:8081/api/chat/streamq?question=世界上最好的编程语言是什么
+Accept: application/json
+
 ### 测试空问题
 GET http://localhost:8081/api/chat/q?question=
 Accept: application/json
