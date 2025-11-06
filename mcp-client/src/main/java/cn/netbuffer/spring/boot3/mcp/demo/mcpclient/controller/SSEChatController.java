@@ -17,9 +17,9 @@ public class SSEChatController {
     @Resource
     private SSEServerComponent sseServerComponent;
 
-    @GetMapping(path = "connect", produces = {MediaType.TEXT_EVENT_STREAM_VALUE})
-    public SseEmitter connect(@RequestParam("userId") String userId) {
-        return sseServerComponent.connect(userId);
+    @GetMapping(path = "events", produces = {MediaType.TEXT_EVENT_STREAM_VALUE})
+    public SseEmitter events(@RequestParam("userId") String userId) {
+        return sseServerComponent.events(userId);
     }
 
     @PostMapping(path = "send")

@@ -13,7 +13,7 @@ public class SSEServerComponent {
 
     private static final Map<String, SseEmitter> sseClients = new ConcurrentHashMap<>();
 
-    public SseEmitter connect(String userId) {
+    public SseEmitter events(String userId) {
         SseEmitter sseEmitter = new SseEmitter(0L);
         sseEmitter.onTimeout(() -> {
             log.warn("SSE连接超时，用户ID为：{}", userId);
