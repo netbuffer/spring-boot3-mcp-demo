@@ -1,5 +1,6 @@
-package cn.netbuffer.spring.boot3.mcp.demo.mcpclient.service;
+package cn.netbuffer.spring.boot3.mcp.demo.mcpclient.service.impl;
 
+import cn.netbuffer.spring.boot3.mcp.demo.mcpclient.service.LLMChatClient;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.deepseek.DeepSeekChatModel;
