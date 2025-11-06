@@ -13,3 +13,12 @@ Accept: application/json
 ### 测试空问题
 GET http://localhost:8081/api/chat/q?question=
 Accept: application/json
+
+### 测试通过SSE发送消息给指定用户
+POST http://localhost:8081/api/chat/sse/send?userId=10000
+Content-Type: application/json
+
+{
+  "userId": 10000,
+  "message": "中文内容"
+}
