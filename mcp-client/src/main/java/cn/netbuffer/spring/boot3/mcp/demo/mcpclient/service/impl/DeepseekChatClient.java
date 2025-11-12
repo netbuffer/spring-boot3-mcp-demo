@@ -26,7 +26,9 @@ public class DeepseekChatClient implements LLMChatClient {
 
     @Override
     public Flux<String> streamq(String prompt) {
-        return deepseekChatClient.prompt(prompt).stream().content();
+        Flux<String> content = deepseekChatClient.prompt(prompt).stream().content();
+        // 使用doOnNext来记录流输出，而不是消费整个流
+        return content.doOnNext(s -> log.info("stream output...:{}", s));
     }
 
 }
