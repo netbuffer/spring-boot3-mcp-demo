@@ -1,5 +1,6 @@
 package cn.netbuffer.spring.boot3.mcp.demo.mcpclient.service.impl;
 
+import cn.netbuffer.spring.boot3.mcp.demo.mcpclient.constant.CDateTimeFormat;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.ai.document.Document;
 import org.springframework.ai.reader.tika.TikaDocumentReader;
@@ -12,9 +13,9 @@ import org.springframework.stereotype.Service;
 
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 @Slf4j
 @Service
@@ -33,7 +34,11 @@ public class RAGService {
         }
         TikaDocumentReader tikaDocumentReader = new TikaDocumentReader(resource);
         List<Document> documentList = tikaDocumentReader.get();
-        documentList.forEach(d -> d.getMetadata().put("fileName", fileName));
+        documentList.forEach(d -> {
+            Map metaData = d.getMetadata();
+            metaData.put("fileName", fileName);
+            metaData.put("updateDate", LocalDateTime.now().format(DateTimeFormatter.ofPattern(CDateTimeFormat.yyyy_MM_dd_HH_mm_ss)));
+        });
         log.debug("Original documentList.size()={}", documentList.size());
 
         // 使用TokenTextSplitter进行文档分割，避免token数量超过限制
