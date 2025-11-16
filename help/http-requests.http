@@ -38,3 +38,6 @@ Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.doc
 
 < ./知识库1.docx
 --WebAppBoundary--
+
+### knowledge/search
+GET http://localhost:8081/rag/knowledge/search?q=问些问题

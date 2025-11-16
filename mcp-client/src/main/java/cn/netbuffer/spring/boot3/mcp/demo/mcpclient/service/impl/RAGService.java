@@ -15,7 +15,10 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @Service
@@ -114,6 +117,10 @@ public class RAGService {
     private String urlEncode(String value) {
         String enc = URLEncoder.encode(value, StandardCharsets.UTF_8);
         return enc.replace("+", "%20");
+    }
+
+    public List<Document> search(String query) {
+        return vectorStore.similaritySearch(query);
     }
 
 }
