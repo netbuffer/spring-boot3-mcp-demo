@@ -22,3 +22,19 @@ Content-Type: application/json
   "userId": 10000,
   "message": "中文内容"
 }
+
+### knowledge/create
+POST http://localhost:8081/rag/knowledge/create
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="some-key"
+Content-Type: text/plain
+
+some-value
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="zhishiku1.docx"; filename*=UTF-8''%E7%9F%A5%E8%AF%86%E5%BA%931.docx
+Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document
+
+< ./知识库1.docx
+--WebAppBoundary--

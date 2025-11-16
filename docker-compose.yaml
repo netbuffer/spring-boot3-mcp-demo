@@ -1,0 +1,13 @@
+version: '3.9'
+services:
+  redis-stack:
+    container_name: redis-stack
+    hostname: redis-stack
+    image: redis/redis-stack:7.4.0-v8
+    ports:
+      - "8379:6379"
+      - "8380:8001"
+    environment:
+      - REDIS_ARGS=--requirepass your-pwd
+    volumes:
+      - .env/redis-stack/data:/data

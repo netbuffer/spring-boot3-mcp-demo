@@ -9,6 +9,14 @@
 ## help
 * http://127.0.0.1:8081
 
+### proxy config
+```shell
+-Dhttp.proxyHost=xxx
+-Dhttp.proxyPort=xxx
+-Dhttps.proxyHost=xxx
+-Dhttps.proxyPort=xxx
+```
+
 ### Project Modules
 
 This project contains the following modules:
@@ -26,6 +34,9 @@ To run the application:
    ```bash
    mvn spring-boot:run -pl mcp-client
    ```
+#### redis-stack
+* docker-compose up -d
+* http://localhost:8380
 
 ### Features
 
