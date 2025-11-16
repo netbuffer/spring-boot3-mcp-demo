@@ -9,6 +9,87 @@
 ## help
 * http://127.0.0.1:8081
 
+### Project Structure
+
+```
+spring-boot3-mcp-demo/
+├── mcp-client/          # 主应用模块（Web 控制器、服务、配置）
+│   └── src/main/resources/application.yaml
+├── mcp-common/          # 公共组件
+├── help/
+│   └── http-requests.http  # IDEA HTTP Client 测试集合
+├── docker-compose.yaml  # Redis Stack（向量存储）
+└── pom.xml
+```
+
+### Prerequisites
+
+- JDK 17+
+- Maven 3.9+
+- Docker（用于 Redis Stack）
+- 环境变量（可选）：
+  - `OPENAI_API_KEY`、`DEEPSEEK_API_KEY`
+
+### Build & Run
+
+```bash
+# 构建
+mvn clean install
+
+# 启动 Redis Stack（向量存储）
+docker-compose up -d
+# Redis UI: http://localhost:8380  密码: your-pwd
+
+# 运行应用
+mvn spring-boot:run -pl mcp-client
+
+# 可选 JVM 参数（Windows 控制台中文友好）
+-Dfile.encoding=UTF-8
+```
+
+### Configuration
+
+主配置文件：`mcp-client/src/main/resources/application.yaml`
+
+关键项：
+- Server: port 8081，强制 UTF-8
+- Spring AI Chat: OpenAI / DeepSeek（max-tokens、temperature、model）
+- VectorStore Redis: `index-name=sb3md-v`, `prefix=vtr:`
+- Embedding cache: `.env/transformer-cache`
+- Redis: host 127.0.0.1, port 8379, password `your-pwd`
+
+### API Endpoints
+
+- **Chat**
+  - GET `/api/chat/q?question=...` → String
+  - GET `/api/chat/streamq?question=...` → Server streaming text (Flux)
+- **SSE**
+  - GET `/api/chat/sse/events?userId=xxx` → SseEmitter
+  - POST `/api/chat/sse/send?userId=xxx` body `{ "userId": "...", "message": "..." }`
+- **RAG 知识上传**
+  - POST `/rag/knowledge/create`（multipart/form-data）
+  - 字段 `file`：文档（推荐 .docx）
+
+测试示例见 `help/http-requests.http`，可直接在 IDEA 中运行。
+
+### RAG 行为说明（概要）
+
+- 文档解析：Apache Tika 解析 .docx，全链路 UTF-8
+- 重复上传幂等覆盖：基于文件名的稳定向量 ID + Redis manifest，同名文件仅保留最新一版向量
+- 中文文件名上传建议使用 RFC5987 `filename*`（见 http-requests.http 示例）
+
+### FAQ
+
+- **启动报错：VectorStore bean not found**
+  - 确认 Redis 可用（8379 端口），`spring.data.redis.*` 配置正确
+  - 确认存在可用的 Embedding 能力（如 transformer/openai；必要时开启 `spring.ai.embedding.transformer.enabled=true`）
+  - Maven Reimport + `mvn clean package`
+
+- **中文文件名/内容乱码**
+  - JVM 参数：`-Dfile.encoding=UTF-8`
+  - 日志配置：`logging.charset.console/file=UTF-8`
+  - 上传请求使用 `filename*`（见 http-requests.http 示例）
+
 ### proxy config
 ```shell
 -Dhttp.proxyHost=xxx
@@ -23,20 +104,6 @@ This project contains the following modules:
 
 1. **mcp-client** - Main application module with Spring Boot web controllers and services
 2. **mcp-common** - Shared utilities and common components
-
-### Quick Start
-
-To run the application:
-
-1. Clone the repository
-2. Run `mvn clean install` to build all modules
-3. Start the application with:
-   ```bash
-   mvn spring-boot:run -pl mcp-client
-   ```
-#### redis-stack
-* docker-compose up -d
-* http://localhost:8380
 
 ### Features
 
