@@ -23,7 +23,7 @@ Content-Type: application/json
   "message": "中文内容"
 }
 
-### knowledge/create
+### /rag/knowledge/create
 POST http://localhost:8081/rag/knowledge/create
 Content-Type: multipart/form-data; boundary=WebAppBoundary
 
@@ -39,5 +39,8 @@ Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.doc
 < ./知识库1.docx
 --WebAppBoundary--
 
-### knowledge/search
+### /rag/knowledge/search
 GET http://localhost:8081/rag/knowledge/search?q=问些问题
+
+### /rag/ask
+GET http://localhost:8081/rag/ask?question=软件开发一个月能赚多少钱？

@@ -1,6 +1,7 @@
 package cn.netbuffer.spring.boot3.mcp.demo.mcpclient.service.impl;
 
 import cn.netbuffer.spring.boot3.mcp.demo.mcpclient.constant.CDateTimeFormat;
+import cn.netbuffer.spring.boot3.mcp.demo.mcpclient.service.LLMChatClient;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.ai.document.Document;
 import org.springframework.ai.reader.tika.TikaDocumentReader;
@@ -19,6 +20,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -28,6 +30,8 @@ public class RAGService {
     private VectorStore vectorStore;
     @jakarta.annotation.Resource
     private StringRedisTemplate stringRedisTemplate;
+    @jakarta.annotation.Resource(name = "deepseekChatClient")
+    private LLMChatClient llmChatClient;
 
     public List<Document> create(Resource resource, String fileName) {
         log.debug("create knowledge fileName={}", fileName);
@@ -121,6 +125,46 @@ public class RAGService {
 
     public List<Document> search(String query) {
         return vectorStore.similaritySearch(query);
+    }
+
+    public String askWithKnowledge(String question) {
+
+        // 1. 从知识库检索相关文档
+        List<Document> relevantDocs = this.search(question);
+        log.debug("Found {} relevant documents", relevantDocs.size());
+        
+        // 2. 构建包含上下文的提示词
+        String context = relevantDocs.stream()
+                .limit(5) // 限制上下文长度，避免token超限
+                .map(Document::getText)
+                .collect(Collectors.joining("\n\n"));
+        
+        String prompt = buildRAGPrompt(question, context);
+        log.trace("RAG prompt: {}", prompt);
+
+        // 3. 调用大模型生成回答
+        return llmChatClient.q(prompt);
+    }
+
+    private String buildRAGPrompt(String question, String context) {
+        StringBuilder prompt = new StringBuilder();
+        prompt.append("你是一个智能助手，请基于以下知识库内容回答用户问题。\n\n");
+        
+        if (!context.isEmpty()) {
+            prompt.append("知识库内容：\n");
+            prompt.append(context);
+            prompt.append("\n\n");
+        } else {
+            prompt.append("知识库中没有找到相关内容。\n\n");
+        }
+        
+        prompt.append("用户问题：");
+        prompt.append(question);
+        prompt.append("\n\n");
+        
+        prompt.append("请基于上述知识库内容回答用户问题。如果知识库中没有相关信息，请明确说明并提供一般性的建议。回答要准确、简洁、有帮助。");
+        
+        return prompt.toString();
     }
 
 }
