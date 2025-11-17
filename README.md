@@ -9,6 +9,7 @@
 ## help
 * http://127.0.0.1:8081
 * http://127.0.0.1:8380
+* http://127.0.0.1:8381/search?q=java%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC%E6%98%AF%E5%A4%9A%E5%B0%91&format=json
 
 ### Project Structure
 
@@ -148,6 +149,7 @@ This project contains the following modules:
 
 For further reference, please consider the following sections:
 
+* https://github.com/searxng/searxng
 * [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
 * [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/3.5.7/maven-plugin)
 * [Create an OCI image](https://docs.spring.io/spring-boot/3.5.7/maven-plugin/build-image.html)
