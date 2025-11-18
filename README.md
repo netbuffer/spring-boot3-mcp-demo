@@ -8,6 +8,8 @@
 ![forest](https://img.shields.io/static/v1?label=forest&message=1.8.0&color=54C024)
 ![searxng:2025.11.15-45a4b8ad1](https://img.shields.io/static/v1?label=searxng&message=2025.11.15-45a4b8ad1&color=487CFF)
 
+https://github.com/netbuffer/spring-boot3-mcp-demo  
+https://gitee.com/netbuffer/spring-boot3-mcp-demo
 ## help
 * http://127.0.0.1:8081
 * http://127.0.0.1:8380
