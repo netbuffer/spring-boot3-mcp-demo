@@ -46,4 +46,17 @@ GET http://localhost:8081/rag/knowledge/search?q=问些问题
 GET http://localhost:8081/rag/ask?question=软件开发一个月能赚多少钱？
 
 ### /SearXNG/search
-GET http://localhost:8081/SearXNG/search?q=软件开发一个月能赚多少钱？
+GET http://localhost:8081/SearXNG/search?q=软件开发一个月能赚多少钱？&llmEnhanced=true&llmModel=deepseek
+
+### /SearXNG/search (POST)
+POST http://localhost:8081/SearXNG/search
+Content-Type: application/json
+
+{
+    "query": "软件开发一个月能赚多少钱？",
+    "llmEnhanced": true,
+    "llmModel": "openai"
+  }
+
+### SearXNG控制器健康检查
+GET http://localhost:8081/SearXNG/health
