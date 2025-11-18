@@ -20,6 +20,8 @@
         <spring-ai.version>1.0.3</spring-ai.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <forest.version>1.8.0</forest.version>
+        <fastjson2.version>2.0.60</fastjson2.version>
     </properties>
 
     <modules>
@@ -35,6 +37,11 @@
                 <version>${spring-ai.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.dtflys.forest</groupId>
+                <artifactId>forest-spring-boot3-starter</artifactId>
+                <version>${forest.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -78,6 +85,11 @@
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.fastjson2</groupId>
+            <artifactId>fastjson2</artifactId>
+            <version>${fastjson2.version}</version>
         </dependency>
     </dependencies>
 

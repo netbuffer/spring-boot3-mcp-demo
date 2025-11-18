@@ -5,6 +5,8 @@
 ![spring-ai](https://img.shields.io/static/v1?label=spring-ai&message=1.0.3&color=green)
 ![dotenv-java](https://img.shields.io/static/v1?label=dotenv-java&message=3.2.0&color=blue)
 ![postman](https://img.shields.io/static/v1?label=postman&message=v11.70.5&color=FF6C37)
+![forest](https://img.shields.io/static/v1?label=forest&message=1.8.0&color=54C024)
+![searxng:2025.11.15-45a4b8ad1](https://img.shields.io/static/v1?label=searxng&message=2025.11.15-45a4b8ad1&color=487CFF)
 
 ## help
 * http://127.0.0.1:8081

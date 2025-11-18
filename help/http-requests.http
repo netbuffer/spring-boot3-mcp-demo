@@ -44,3 +44,6 @@ GET http://localhost:8081/rag/knowledge/search?q=问些问题
 
 ### /rag/ask
 GET http://localhost:8081/rag/ask?question=软件开发一个月能赚多少钱？
+
+### /SearXNG/search
+GET http://localhost:8081/SearXNG/search?q=软件开发一个月能赚多少钱？
