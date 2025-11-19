@@ -43,6 +43,13 @@ spring:
         cache:
           enabled: true
           directory: .env/transformer-cache
+    mcp:
+      client:
+        enabled: true
+        request-timeout: 30s
+        type: ASYNC
+        stdio:
+          servers-configuration: classpath:mcp-servers.json
   data:
     redis:
       host: 127.0.0.1

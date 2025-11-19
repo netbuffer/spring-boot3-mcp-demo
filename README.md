@@ -14,6 +14,7 @@ https://gitee.com/netbuffer/spring-boot3-mcp-demo
 * http://127.0.0.1:8081
 * http://127.0.0.1:8380
 * http://127.0.0.1:8381/search?q=java%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC%E6%98%AF%E5%A4%9A%E5%B0%91&format=json
+* https://modelcontextprotocol.io/docs/develop/connect-local-servers#using-the-filesystem-server
 
 ### Project Structure
 

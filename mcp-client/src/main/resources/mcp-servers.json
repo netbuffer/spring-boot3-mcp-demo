@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "mcp-server-hotnews": {
+      "command": "C:\\\\Program Files\\\\nodejs\\\\npx.cmd",
+      "args": [
+        "-y",
+        "@wopal/mcp-server-hotnews"
+      ]
+    }
+  }
+}

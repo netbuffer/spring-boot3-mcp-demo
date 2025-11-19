@@ -60,3 +60,11 @@ Content-Type: application/json
 
 ### SearXNG控制器健康检查
 GET http://localhost:8081/SearXNG/health
+
+### 测试MCP创建文件到本地文件系统
+GET http://localhost:8081/api/chat/q?question=创建hello.txt到本地，并写入"Hello World"字符串
+Accept: application/json
+
+### 查看微博热点
+GET http://localhost:8081/api/chat/q?question=查看微博热点
+Accept: application/json
