@@ -12,6 +12,12 @@
       "args": [
         "mcp-server-fetch"
       ]
+    },
+    "time": {
+      "command": "C:\\\\Users\\\\netbu\\\\.local\\\\bin\\\\uvx.exe",
+      "args": [
+        "mcp-server-time"
+      ]
     }
   }
 }

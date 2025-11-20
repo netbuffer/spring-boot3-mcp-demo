@@ -72,3 +72,7 @@ Accept: application/json
 ### fetch网页内容
 GET http://localhost:8081/api/chat/q?question=获取网页内容：https://aliyun.com
 Accept: application/json
+
+### 获取当前时间
+GET http://localhost:8081/api/chat/q?question=美国东部当前时间
+Accept: application/json
