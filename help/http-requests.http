@@ -68,3 +68,7 @@ Accept: application/json
 ### 查看微博热点
 GET http://localhost:8081/api/chat/q?question=查看微博热点
 Accept: application/json
+
+### fetch网页内容
+GET http://localhost:8081/api/chat/q?question=获取网页内容：https://aliyun.com
+Accept: application/json

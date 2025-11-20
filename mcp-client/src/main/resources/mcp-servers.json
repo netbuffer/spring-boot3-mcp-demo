@@ -6,6 +6,12 @@
         "-y",
         "@wopal/mcp-server-hotnews"
       ]
+    },
+    "fetch": {
+      "command": "C:\\\\Users\\\\netbu\\\\.local\\\\bin\\\\uvx.exe",
+      "args": [
+        "mcp-server-fetch"
+      ]
     }
   }
 }
