@@ -50,6 +50,11 @@ spring:
         type: ASYNC
         stdio:
           servers-configuration: classpath:mcp-servers.json
+        streamable-http:
+          connections:
+            baidu-map-server:
+              url: https://mcp.map.baidu.com
+              endpoint: ${BAIDU_MAP_API_KEY}
   data:
     redis:
       host: 127.0.0.1

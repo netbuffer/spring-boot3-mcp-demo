@@ -2,11 +2,13 @@
 
 ![jdk 17](https://img.shields.io/static/v1?label=jdk&message=17&color=blue)
 ![spring-boot](https://img.shields.io/static/v1?label=spring-boot&message=3.5.7&color=green)
-![spring-ai](https://img.shields.io/static/v1?label=spring-ai&message=1.0.3&color=green)
+![spring-ai](https://img.shields.io/static/v1?label=spring-ai&message=1.1.0&color=green)
 ![dotenv-java](https://img.shields.io/static/v1?label=dotenv-java&message=3.2.0&color=blue)
 ![postman](https://img.shields.io/static/v1?label=postman&message=v11.70.5&color=FF6C37)
 ![forest](https://img.shields.io/static/v1?label=forest&message=1.8.0&color=54C024)
 ![searxng:2025.11.15-45a4b8ad1](https://img.shields.io/static/v1?label=searxng&message=2025.11.15-45a4b8ad1&color=487CFF)
+![node](https://img.shields.io/static/v1?label=node&message=24.9.0&color=blue)
+![uvx](https://img.shields.io/static/v1?label=uvx&message=0.9.11&color=black)
 
 https://github.com/netbuffer/spring-boot3-mcp-demo  
 https://gitee.com/netbuffer/spring-boot3-mcp-demo
@@ -15,6 +17,7 @@ https://gitee.com/netbuffer/spring-boot3-mcp-demo
 * http://127.0.0.1:8380
 * http://127.0.0.1:8381/search?q=java%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC%E6%98%AF%E5%A4%9A%E5%B0%91&format=json
 * https://modelcontextprotocol.io/docs/develop/connect-local-servers#using-the-filesystem-server
+* https://lbsyun.baidu.com/faq/api?title=mcpserver/base
 
 ### Project Structure
 
