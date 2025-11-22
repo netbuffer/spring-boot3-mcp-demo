@@ -13,11 +13,11 @@
 https://github.com/netbuffer/spring-boot3-mcp-demo  
 https://gitee.com/netbuffer/spring-boot3-mcp-demo
 ## help
-* http://127.0.0.1:8081
-* http://127.0.0.1:8380
-* http://127.0.0.1:8381/search?q=java%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC%E6%98%AF%E5%A4%9A%E5%B0%91&format=json
-* https://modelcontextprotocol.io/docs/develop/connect-local-servers#using-the-filesystem-server
-* https://lbsyun.baidu.com/faq/api?title=mcpserver/base
+* http://127.0.0.1:8081 - 主应用界面
+* http://127.0.0.1:8380 - Redis UI (密码: your-pwd)
+* http://127.0.0.1:8381/search?q=java%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC%E6%98%AF%E5%A4%9A%E5%B0%91&format=json - Searxng示例
+* https://modelcontextprotocol.io/docs/develop/connect-local-servers#using-the-filesystem-server - MCP文档
+* https://lbsyun.baidu.com/faq/api?title=mcpserver/base - Baidu Map MCP文档
 
 ### Project Structure
 
@@ -29,6 +29,7 @@ spring-boot3-mcp-demo/
 ├── help/
 │   └── http-requests.http  # IDEA HTTP Client 测试集合
 ├── docker-compose.yaml  # Redis Stack（向量存储）
+├── mcp-servers.json     # MCP服务配置
 └── pom.xml
 ```
 
@@ -37,6 +38,8 @@ spring-boot3-mcp-demo/
 - JDK 17+
 - Maven 3.9+
 - Docker（用于 Redis Stack）
+- Node.js (用于部分MCP服务器)
+- Python 3.8+ (用于uvx工具)
 - 环境变量（可选）：
   - `OPENAI_API_KEY`、`DEEPSEEK_API_KEY`
 
