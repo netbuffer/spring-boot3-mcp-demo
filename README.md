@@ -12,12 +12,15 @@
 
 https://github.com/netbuffer/spring-boot3-mcp-demo  
 https://gitee.com/netbuffer/spring-boot3-mcp-demo
+
 ## help
 * http://127.0.0.1:8081 - 主应用界面
 * http://127.0.0.1:8380 - Redis UI (密码: your-pwd)
 * http://127.0.0.1:8381/search?q=java%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC%E6%98%AF%E5%A4%9A%E5%B0%91&format=json - Searxng示例
 * https://modelcontextprotocol.io/docs/develop/connect-local-servers#using-the-filesystem-server - MCP文档
 * https://lbsyun.baidu.com/faq/api?title=mcpserver/base - Baidu Map MCP文档
+* https://docs.spring.io/spring-ai/reference/api/mcp/mcp-server-boot-starter-docs.html
+* https://github.com/spring-projects/spring-ai-examples/blob/main/model-context-protocol/weather/starter-webmvc-server/src/main/java/org/springframework/ai/mcp/sample/server/McpServerApplication.java
 
 ### Project Structure
 
@@ -26,10 +29,11 @@ spring-boot3-mcp-demo/
 ├── mcp-client/          # 主应用模块（Web 控制器、服务、配置）
 │   └── src/main/resources/application.yaml
 ├── mcp-common/          # 公共组件
+├── mcp-server1/         # MCP服务器实现（SSE支持）
+│   └── src/main/resources/application.yaml
 ├── help/
 │   └── http-requests.http  # IDEA HTTP Client 测试集合
 ├── docker-compose.yaml  # Redis Stack（向量存储）
-├── mcp-servers.json     # MCP服务配置
 └── pom.xml
 ```
 
@@ -62,7 +66,10 @@ mvn spring-boot:run -pl mcp-client
 
 ### Configuration
 
-主配置文件：`mcp-client/src/main/resources/application.yaml`
+主配置文件：
+- `mcp-client/src/main/resources/application.yaml` - 主应用配置
+- `mcp-server1/src/main/resources/application.yaml` - MCP服务器配置
+- `mcp-servers.json` - MCP服务配置文件，定义可用的MCP服务器
 
 关键项：
 - Server: port 8081，强制 UTF-8
@@ -143,7 +150,10 @@ This project contains the following modules:
 
 1. **mcp-client** - Main application module with Spring Boot web controllers and services
 2. **mcp-common** - Shared utilities and common components
-
+3. **mcp-server1** - MCP服务器实现，提供SSE支持
+   - 支持SSE流式协议
+   - 可配置的MCP服务端点
+   - 与主应用通过MCP协议通信
 ### Features
 
 - **RESTful API endpoints** - 完整的 REST API 支持
