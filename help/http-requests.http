@@ -80,3 +80,11 @@ Accept: application/json
 ### 查询北京故宫周边的美食
 GET http://localhost:8081/api/chat/q?question=查询北京故宫周边的美食
 Accept: application/json
+
+### 查询当前时间
+GET http://localhost:8081/api/chat/q?question=查询当前时间
+Accept: application/json
+
+### 今天是工作日么
+GET http://localhost:8081/api/chat/q?question=今天是工作日么
+Accept: application/json

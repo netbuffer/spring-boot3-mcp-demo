@@ -46,7 +46,7 @@ spring:
     mcp:
       client:
         enabled: true
-        request-timeout: 30s
+        request-timeout: 60s
         type: ASYNC
         stdio:
           servers-configuration: classpath:mcp-servers.json
@@ -55,6 +55,12 @@ spring:
             baidu-map-server:
               url: https://mcp.map.baidu.com
               endpoint: ${BAIDU_MAP_API_KEY}
+        sse:
+          connections:
+            mcp-server1:
+              url: http://localhost:8082
+              sse-endpoint: /sse
+
   data:
     redis:
       host: 127.0.0.1
