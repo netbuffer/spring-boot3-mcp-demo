@@ -48,8 +48,16 @@ spring:
         enabled: true
         request-timeout: 60s
         type: ASYNC
+        toolcallback:
+          enabled: true
         stdio:
           servers-configuration: classpath:mcp-servers.json
+          connections:
+            mcp-server2:
+              command: java
+              args:
+                - -jar
+                - help/mcp-server2.jar
         streamable-http:
           connections:
             baidu-map-server:
@@ -74,6 +82,11 @@ logging:
     org:
       springframework:
         ai: DEBUG
+    io:
+      modelcontextprotocol:
+        client: DEBUG
+        spec: DEBUG
+
   charset:
     console: UTF-8
     file: UTF-8

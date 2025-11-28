@@ -32,6 +32,4 @@ build/
 ### VS Code ###
 .vscode/
 
-.env
-
-help/mcp-server2.jar
+src/main/resources/mcp-client.env

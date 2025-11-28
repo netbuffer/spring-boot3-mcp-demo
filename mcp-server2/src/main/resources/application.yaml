@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: mcp-server2
+  ai:
+    mcp:
+      server:
+        enabled: true
+        name: mcp-server2
+        version: 1.0.0
+        type: async
+        stdio: true
+  main:
+    banner-mode: off
+    web-application-type: none
+
+logging:
+  level:
+    root: OFF
+
+forest:
+  backend: okhttp3
+  max-connections: 100
+  max-route-connections: 50
+  max-request-queue-size: 100
+  max-async-thread-size: 10
+  max-async-queue-size: 10
+  timeout: 3000
+  connect-timeout: 3000
+  read-timeout: 10000
+  max-retry-count: 0
+  ssl-protocol: TLS
+  log-enabled: true
+  log-request: true
+  log-response-status: true
+  log-response-content: true
+  async-mode: platform

@@ -28,6 +28,7 @@
         <module>mcp-common</module>
         <module>mcp-client</module>
         <module>mcp-server1</module>
+        <module>mcp-server2</module>
     </modules>
 
     <dependencyManagement>
