@@ -31,8 +31,13 @@ spring-boot3-mcp-demo/
 ├── mcp-common/          # 公共组件
 ├── mcp-server1/         # MCP服务器实现（SSE支持）
 │   └── src/main/resources/application.yaml
+├── mcp-server2/         # MCP服务器实现（标准IO支持）
+│   └── src/main/resources/application.yaml
 ├── help/
-│   └── http-requests.http  # IDEA HTTP Client 测试集合
+│   ├── http-requests.http               # IDEA HTTP Client 测试集合
+│   ├── spring-boot3-mcp-demo.postman_collection.json  # Postman测试集合
+│   ├── rag-knowledge.md                 # RAG知识库说明
+│   └── *.png                            # 项目截图资源
 ├── docker-compose.yaml  # Redis Stack（向量存储）
 └── pom.xml
 ```
@@ -152,7 +157,12 @@ This project contains the following modules:
 2. **mcp-common** - Shared utilities and common components
 3. **mcp-server1** - MCP服务器实现，提供SSE支持
    - 支持SSE流式协议
+   - 监听端口8082
    - 可配置的MCP服务端点
+   - 与主应用通过MCP协议通信
+4. **mcp-server2** - MCP服务器实现，提供标准IO支持
+   - 非Web应用类型，使用stdio模式
+   - 异步处理模式
    - 与主应用通过MCP协议通信
 ### Features
 
