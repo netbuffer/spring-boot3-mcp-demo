@@ -85,6 +85,6 @@ Accept: application/json
 GET http://localhost:8081/api/chat/q?question=查询当前时间
 Accept: application/json
 
-### 今天是工作日么
-GET http://localhost:8081/api/chat/q?question=今天是工作日么
+### 测试记忆能力
+GET http://localhost:8081/api/chat/q?question=我刚刚问你的是什么
 Accept: application/json

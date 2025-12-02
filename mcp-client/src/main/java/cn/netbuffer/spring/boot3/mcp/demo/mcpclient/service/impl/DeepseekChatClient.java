@@ -3,6 +3,9 @@ package cn.netbuffer.spring.boot3.mcp.demo.mcpclient.service.impl;
 import cn.netbuffer.spring.boot3.mcp.demo.mcpclient.service.LLMChatClient;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.ai.chat.client.advisor.MessageChatMemoryAdvisor;
+import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
+import org.springframework.ai.chat.memory.ChatMemory;
 import org.springframework.ai.deepseek.DeepSeekChatModel;
 import org.springframework.ai.tool.ToolCallbackProvider;
 import org.springframework.stereotype.Component;
@@ -11,11 +14,15 @@ import reactor.core.publisher.Flux;
 @Slf4j
 @Component
 public class DeepseekChatClient implements LLMChatClient {
-    private ChatClient deepseekChatClient;
 
-    public DeepseekChatClient(DeepSeekChatModel deepSeekChatModel, ToolCallbackProvider toolCallbackProvider) {
+    private ChatClient deepseekChatClient;
+    private ChatMemory chatMemory;
+
+    public DeepseekChatClient(DeepSeekChatModel deepSeekChatModel, ChatMemory chatMemory, ToolCallbackProvider toolCallbackProvider) {
+        this.chatMemory = chatMemory;
         this.deepseekChatClient = ChatClient.builder(deepSeekChatModel)
                 .defaultToolCallbacks(toolCallbackProvider)
+                .defaultAdvisors(MessageChatMemoryAdvisor.builder(chatMemory).build(), new SimpleLoggerAdvisor())
                 .defaultSystem("你是一个全能的人工智能助手，可以回答任何问题。")
                 .build();
         log.info("init DeepseekChatClient");
