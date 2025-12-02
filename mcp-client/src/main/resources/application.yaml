@@ -57,7 +57,7 @@ spring:
               command: java
               args:
                 - -jar
-                - help/mcp-server2.jar
+                - help/jars/mcp-server2.jar
         streamable-http:
           connections:
             baidu-map-server:

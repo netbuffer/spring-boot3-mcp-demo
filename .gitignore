@@ -34,4 +34,4 @@ build/
 
 .env
 
-help/*.jar
+help/jars/*.jar
