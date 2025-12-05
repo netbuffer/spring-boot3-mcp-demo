@@ -21,6 +21,7 @@ https://gitee.com/netbuffer/spring-boot3-mcp-demo
 * https://lbsyun.baidu.com/faq/api?title=mcpserver/base - Baidu Map MCP文档
 * https://docs.spring.io/spring-ai/reference/api/mcp/mcp-server-boot-starter-docs.html
 * https://github.com/spring-projects/spring-ai-examples/blob/main/model-context-protocol/weather/starter-webmvc-server/src/main/java/org/springframework/ai/mcp/sample/server/McpServerApplication.java
+* https://docs.spring.io/spring-ai/reference/api/chat-memory.html
 
 ### Project Structure
 
@@ -185,6 +186,7 @@ For further reference, please consider the following sections:
 * [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/3.5.7/maven-plugin)
 * [Create an OCI image](https://docs.spring.io/spring-boot/3.5.7/maven-plugin/build-image.html)
 * [Spring Web](https://docs.spring.io/spring-boot/3.5.7/reference/web/servlet.html)
+* https://github.com/leehainuo/spring-ai-redis-starter
 
 ### Guides
 

@@ -15,6 +15,9 @@ spring:
       max-request-size: 11MB
   ai:
     chat:
+      memory:
+        redis:
+          enabled: true
       client:
         enabled: true
     openai:
