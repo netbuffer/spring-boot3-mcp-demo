@@ -14,6 +14,7 @@ import reactor.core.publisher.Flux;
 @RequestMapping("/api/chat")
 public class ChatController {
 
+//    @Resource(name = "googleAIChatClient")
 //    @Resource(name = "openAIChatClient")
     @Resource(name = "deepseekChatClient")
     private LLMChatClient llmChatClient;
